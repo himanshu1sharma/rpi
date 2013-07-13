@@ -1,10 +1,12 @@
 $(document).change("select#flip-1",function() {
     value = $("#flip-1").val();
     if(value== "on"){
-    	alert('Himanshu');
+    	$.get('/turnOn', function(){
+				});)
     }
     else {
-    	$post('/blink');
+    	$.get('/turnOff', function(){
+				});)
     }
 
 	});
