@@ -31,8 +31,8 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/blink', servo.blink);
-app.get('/turnOn/', servo.turnOn);
-app.get('/turnOff/', servo.turnOff);
+app.post('/turnOn/', servo.turnOn);
+app.post('/turnOff/', servo.turnOff);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -1,51 +1,54 @@
-$(document).change("select#flip-1",function() {
+$(document).ready(function() {
+
+$('select#flip-1').change(function() {
     value = $("#flip-1").val();
     if(value== "on"){
-    	$.get('/turnOn/?pin=7', function(){
+    	$.post('/turnOn/',{pin:7}, function(){
 				});
     }
     else {
-    	$.get('/turnOff/?pin=7', function(){
+    	$.post('/turnOff/',{pin:7}, function(){
 				});
     }
 
 	});
 
-$(document).change("select#flip-2",function() {
+$('select#flip-2').change(function() {
     value = $("#flip-1").val();
     if(value== "on"){
-    	$.get('/turnOn/?pin=11', function(){
+    	$.post('/turnOn/',{pin:11}, function(){
 				});
     }
     else {
-    	$.get('/turnOff/?pin=11', function(){
+    	$.post('/turnOff/',{pin:11}, function(){
 				});
     }
 
 	});
 
-$(document).change("select#flip-3",function() {
+$('select#flip-3').change(function() {
     value = $("#flip-1").val();
     if(value== "on"){
-    	$.get('/turnOn/?pin=8', function(){
+    	$.post('/turnOn/',{pin:8}, function(){
 				});
     }
     else {
-    	$.get('/turnOff/?pin=8', function(){
+    	$.post('/turnOff/',{pin:8}, function(){
 				});
     }
 
 	});
 
-$(document).change("select#flip-4",function() {
+$('select#flip-4').change(function() {
     value = $("#flip-1").val();
     if(value== "on"){
-    	$.get('/turnOn/?pin=12', function(){
+    	$.post('/turnOn/',{pin:12}, function(){
 				});
     }
     else {
-    	$.get('/turnOff/?pin=12', function(){
+    	$.post('/turnOff/',{pin:12}, function(){
 				});
     }
 
 	});
+});
