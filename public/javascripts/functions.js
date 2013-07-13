@@ -14,7 +14,7 @@ $('select#flip-1').change(function() {
 	});
 
 $('select#flip-2').change(function() {
-    value = $("#flip-1").val();
+    value = $("#flip-2").val();
     if(value== "on"){
     	$.post('/turnOn/',{pin:11}, function(){
 				});
@@ -27,7 +27,7 @@ $('select#flip-2').change(function() {
 	});
 
 $('select#flip-3').change(function() {
-    value = $("#flip-1").val();
+    value = $("#flip-3").val();
     if(value== "on"){
     	$.post('/turnOn/',{pin:8}, function(){
 				});
@@ -40,7 +40,7 @@ $('select#flip-3').change(function() {
 	});
 
 $('select#flip-4').change(function() {
-    value = $("#flip-1").val();
+    value = $("#flip-4").val();
     if(value== "on"){
     	$.post('/turnOn/',{pin:12}, function(){
 				});
