@@ -6,7 +6,7 @@ $(document).change("select#flip-1",function() {
     }
     else {
     	$.get('/turnOff', function(){
-				});)
+				});
     }
 
 	});
