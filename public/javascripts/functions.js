@@ -1,11 +1,19 @@
 $(window).load(function() {
-  $.post('/read/',{pin:7}, function(value){
+/*  $.post('/read/',{pin:7}, function(value){
     alert(value);
-    });
+    }); */
 });
 
 
 $(document).ready(function() {
+
+$('#buttonPattern').on('click',function() {
+    
+      $.post('/blinkpattern/',{pin1:7,pin2:11,pin3:8,pin4:12}, function(){
+            
+            alert('Happy Diwali ;)');
+        });
+    });
 
 $('select#flip-1').change(function() {
     value = $("#flip-1").val();
