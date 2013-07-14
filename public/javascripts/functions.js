@@ -12,6 +12,11 @@ $('#buttonPattern').on('click',function() {
       $.post('/blinkpattern/',{pin1:7,pin2:11,pin3:8,pin4:12}, function(){
             
             alert('Happy Diwali ;)');
+            $("#flip-1").val("off").slider("refresh");
+            $("#flip-2").val("off").slider("refresh");
+            $("#flip-3").val("off").slider("refresh");
+            $("#flip-4").val("off").slider("refresh");
+
         });
     });
 
