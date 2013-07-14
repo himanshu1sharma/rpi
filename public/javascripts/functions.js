@@ -1,3 +1,10 @@
+$(window).load(function() {
+  $.post('/read/',{pin:7}, function(value){
+    alert(value);
+    });
+});
+
+
 $(document).ready(function() {
 
 $('select#flip-1').change(function() {
