@@ -32,7 +32,7 @@ exports.turnON = function(request, response) {
 
 exports.turnOff = function(request, response) {
     async.parallel({
-      turnON  : fn.turnOff(request)
+      turnOff  : fn.turnOff(request)
     },function(err,data) {
       //TODO : Exception handling
       if(err){
@@ -45,7 +45,7 @@ exports.turnOff = function(request, response) {
 
 exports.blinkPattern = function(request, response) {
     async.parallel({
-      turnON  : fn.blinkPattern(request)
+      turnBlinkPattern  : fn.blinkPattern(request)
     },function(err,data) {
       //TODO : Exception handling
       if(err){

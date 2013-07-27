@@ -32,7 +32,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 var socket = require('./routes/socket');
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server,{ log: false });
 var a = 1;
 
 app.get('/', routes.index);
