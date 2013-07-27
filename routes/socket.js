@@ -38,7 +38,7 @@ exports.socket = function (io) {
   				pins.twelve = 0;
   		var request = new Object();
   		request.body = data;
-    	fnRouter.turnON(request,function(results){
+    	fnRouter.turnOff(request,function(results){
     		console.log(results);
     		socket.emit('state', { Current: pins });
     		socket.broadcast.emit('state', { Current: pins });
