@@ -1,6 +1,8 @@
 var servo 		  = require('servoControl');
 var async         = require('async');
 var fn            = require('./sharedFunction.js');
+var socket        = require('./socket.js');
+var a = 0;
 
 exports.blink = function(request, response) {
     async.parallel({
@@ -23,7 +25,7 @@ exports.turnON = function(request, response) {
       if(err){
           throw new Error;
        }else{
-        response.send(data);
+        response(data);
       } 
         });
   } 
@@ -36,7 +38,7 @@ exports.turnOff = function(request, response) {
       if(err){
           throw new Error;
        }else{
-        response.send(data);
+        response(data);
       } 
         });
   } 
