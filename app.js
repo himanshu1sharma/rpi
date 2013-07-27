@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -9,8 +8,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-var servo = require('servoControl');
-
+var fnRouter  = require('./routes/piRouter')
 var app = express();
 
 app.configure(function(){
@@ -30,12 +28,12 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/blink', servo.blink);
-app.post('/turnOn/', servo.turnOn);
-app.post('/turnOff/', servo.turnOff);
-app.post('/read/', servo.readState);
-app.post('/blinkpattern/', servo.blinkPattern);
+app.get('/blink', fnRouter.blink);
+app.post('/turnOn/', fnRouter.turnON);
+app.post('/turnOff/', fnRouter.turnOff);
+app.post('/read/', fnRouter.readState);
+app.post('/blinkpattern/', fnRouter.blinkPattern);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+  console.log("Server listening on port " + app.get('port'));
 });
