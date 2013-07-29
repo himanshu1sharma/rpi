@@ -6,9 +6,9 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-//var socket = io.connect('http://app.himanshusharma.info');
+var socket = io.connect('http://app.himanshusharma.info');
 //var socket = io.connect('http://localhost');
-var socket = io.connect('http://10.1.1.11');
+//var socket = io.connect('http://10.1.1.11');
 //var socket = io.connect('http://app1.himanshusharma.info');
 
 socket.on('state', function (data) {
