@@ -8,7 +8,8 @@ $(document).ready(function() {
 
 //var socket = io.connect('http://app.himanshusharma.info');
 //var socket = io.connect('http://localhost');
-var socket = io.connect('http://app1.himanshusharma.info');
+var socket = io.connect('http://10.1.1.11');
+//var socket = io.connect('http://app1.himanshusharma.info');
 
 socket.on('state', function (data) {
     (data.Current.seven == 1 ? $('#flip-1').val('on').slider("refresh") : $('#flip-1').val('off').slider("refresh"));
