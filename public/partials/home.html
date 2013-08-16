@@ -1,0 +1,19 @@
+	<!--	<span class="flipbtn">
+		<select id="flip-1" name="flip-1" data-role="slider" >
+			<option value="off"> Off </option>
+			<option value="on"> On </option>
+		</select>
+		</span>	
+		<br>
+		<span class="flipbtn">
+		<select id="flip-2" name="flip-2" data-role="slider">
+			<option value="off"> Off </option>
+			<option value="on"> On </option>
+		</select>	
+	</span> -->
+	<div class="checkbox" data-ng-repeat="switch in switches">
+  <input id="{{switch.pin}}"  type="checkbox" data-ng-model="newObject[switch.pin]" ng-true-value="On" ng-false-value="Off"/>
+   <label for="{{switch.pin}}">Check-me</label>
+   {{switch.pin}}
+ </div>
+    <tt>{{switch.pin}}</tt>

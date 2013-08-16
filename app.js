@@ -7,6 +7,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+var util  = require('util');
 
 var fnRouter  = require('./routes/piRouter')
 var app = express();
@@ -14,7 +15,8 @@ var app = express();
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  app.engine('html', require('ejs').renderFile);
+ // app.set('view engine', 'jade');
   //app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -29,6 +31,10 @@ app.configure('development', function(){
 
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Server listening on port " + app.get('port'));
+});
+
+server.once('connection', function (stream) {
+  console.log('someone connected!');
 });
 
 var socket = require('./routes/socket');

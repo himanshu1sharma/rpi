@@ -1,6 +1,7 @@
 var fnRouter  = require('./piRouter.js')
 var fs = require('fs');
 var pins = new Object;
+var pinMap={};
 
 fs.readFile("pinstate.json", 'utf8', function (err, data) {
   if (err) {
@@ -10,13 +11,21 @@ fs.readFile("pinstate.json", 'utf8', function (err, data) {
  
   data = JSON.parse(data);
   pins = data;
+  console.log("aaaaaaaaaaaaaa" + JSON.stringify(data));
+  
+  for(var i=0 ; i<data.length;i++) {
+      pinMap[data[i].pin] = data[i];  
+  }
+
+  console.log("PINMAP" + JSON.stringify(pinMap));
+
 });
 
 function assignPin(data,state) {
 
-  if(state == 'high'){
+ /* if(state == 'high'){
       if(data.pin == 7)
-          pins.seven = 1;
+          pins.["data.pin"] = 1;
         else if(data.pin == 11)
           pins.eleven = 1;
         else if(data.pin == 8)
@@ -34,8 +43,8 @@ function assignPin(data,state) {
           pins.eight = 0;
         else if(data.pin == 12)
           pins.twelve = 0;
-      }
-}
+      }*/
+} 
 
 exports.socket = function (io) {
   io.sockets.on('connection', function(socket) {
