@@ -6,16 +6,16 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-var socket = io.connect('http://app.himanshusharma.info');
-//var socket = io.connect('http://localhost');
+//var socket = io.connect('http://app.himanshusharma.info');
+var socket = io.connect('http://localhost');
 //var socket = io.connect('http://10.1.1.11');
 //var socket = io.connect('http://app1.himanshusharma.info');
 
 socket.on('state', function (data) {
-    (data.Current.seven == 1 ? $('#flip-1').val('on').slider("refresh") : $('#flip-1').val('off').slider("refresh"));
-    (data.Current.eleven == 1 ? $('#flip-2').val('on').slider("refresh") : $('#flip-2').val('off').slider("refresh"));
-    (data.Current.eight == 1 ? $('#flip-3').val('on').slider("refresh") : $('#flip-3').val('off').slider("refresh"));
-    (data.Current.twelve == 1 ? $('#flip-4').val('on').slider("refresh") : $('#flip-4').val('off').slider("refresh"));
+    //(data.Current.seven == 1 ? $('#flip-1').val('on').slider("refresh") : $('#flip-1').val('off').slider("refresh"));
+    //(data.Current.eleven == 1 ? $('#flip-2').val('on').slider("refresh") : $('#flip-2').val('off').slider("refresh"));
+    //(data.Current.eight == 1 ? $('#flip-3').val('on').slider("refresh") : $('#flip-3').val('off').slider("refresh"));
+    //(data.Current.twelve == 1 ? $('#flip-4').val('on').slider("refresh") : $('#flip-4').val('off').slider("refresh"));
     
   });
 
@@ -36,12 +36,12 @@ $('#buttonPattern').on('click',function() {
 $('select#flip-1').change(function() {
     value = $("#flip-1").val();
     if(value== "on"){
-        socket.emit('turnOn', { pin:7 });
+      //  socket.emit('turnOn', { pin:7 });
     	/*$.post('/turnOn/',{pin:7}, function(){
 				}); */
     }
     else {
-        socket.emit('turnOff', { pin:7 });
+        //socket.emit('turnOff', { pin:7 });
     	/*$.post('/turnOff/',{pin:7}, function(){
 				}); */
     }
@@ -92,4 +92,4 @@ $('select#flip-4').change(function() {
     }
 
 	});
-});
+}); 

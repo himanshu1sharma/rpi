@@ -2,6 +2,7 @@ var servo 		  = require('servoControl');
 var async         = require('async');
 var fn            = require('./sharedFunction.js');
 var socket        = require('./socket.js');
+var fs = require('fs');
 var a = 0;
 
 exports.blink = function(request, response) {
@@ -68,3 +69,17 @@ exports.blinkPattern = function(request, response) {
       } 
         });
   } 
+
+  exports.getPinstate = function(request,response){
+
+    fs.readFile("pinstate.json", 'utf8', function (err, data) {
+  if (err) {
+    console.log('Error: ' + err);
+    return;
+  }
+ 
+  data = JSON.parse(data);
+  
+  response.send(data);
+});
+}
