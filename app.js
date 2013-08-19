@@ -17,7 +17,7 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.engine('html', require('ejs').renderFile);
  // app.set('view engine', 'jade');
-  //app.use(express.favicon());
+  app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -42,6 +42,7 @@ var io = require('socket.io').listen(server,{ log: false });
 var a = 1;
 
 app.get('/', routes.index);
+app.get('/pinState', fnRouter.getPinstate);
 app.get('/blink', fnRouter.blink);
 app.post('/turnOn/', fnRouter.turnON);
 app.post('/turnOff/', fnRouter.turnOff);
