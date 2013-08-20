@@ -36,13 +36,16 @@
             	<a href="#homePage" data-icon="arrow-l">Back</a>
                 <h2 data-bind="text: name"></h2>
             </div>
-            <div class="flipbtn" data-bind="foreach: switches">
-            <label data-bind="text: name,attr :{'for' : 'button' + pin}"></label>
-				<select data-role="slider" data-theme="a" data-bind="event: { change: $root.switchAction },attr :{'id' : 'button' + pin, 'name' : 'button' + pin}">
-					<option value="off">Off</option>
-					<option value="on">On</option>
-				</select> 
-                <br/>
+            <div data-bind="foreach: switches">
+            <div data-role="collapsible-set">
+              <div data-role="collapsible" data-theme="d" data-collapsed="false">
+                <h3 data-bind="text: name"></h3>
+    				<select data-role="slider" data-theme="a" data-bind="event: { change: $root.switchAction },attr :{'id' : 'button' + pin, 'name' : 'button' + pin}">
+    					<option value="off">Off</option>
+    					<option value="on">On</option>
+    				</select> 
+            </div>
+        </div>
 			</div>
         </div>
      	<!-- /ko -->
@@ -66,7 +69,7 @@
         <div data-role="header" data-position="fixed">
         <h2 data-bind="text:'Delete' + name + '?'"></h2> 
     </div>
-        <a href="#settings" data-role="button" data-icon="delete" data-bind="click:$root.deleteRoom">Delete</a>
+        <a href="#settings" data-role="button" data-icon="check" data-bind="click:$root.deleteRoom">Delete</a>
     </div>
     <!-- /ko -->
 
@@ -114,7 +117,7 @@
                     <a data-icon="delete" data-role="button" data-inline="true" data-bind="click: function(data, event) { $root.deleteSwitchFromRoom($parent.name,data) }"> Remove</a>
                     <br> 
             </div>
-            <a data-icon="plus" data-role="button" data-bind="click: function(data, event) { $root.AddRoomSwitch(name) }">Add Switch</a>
+           <!-- <a data-icon="plus" data-role="button" data-bind="click: function(data, event) { $root.AddRoomSwitch(name) }">Add Switch</a> -->
         </div>
         <!-- /ko -->
 

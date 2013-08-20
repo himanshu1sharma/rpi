@@ -19,18 +19,23 @@ function turnOff(pinNumber){
 
 socket.on('stateChange', function (data) {
 	pinState = data.Current;
+    //console.log(pinState);
     setValues(data.Current);
 });
 
 function getState(callback){
-	$.get('/pinState/', function(roomList){ 
-        callback(roomList); 
+	$.get('/pinState/', function(roomList){
+        callback(roomList);
+
+        setTimeout(function () { 
+                setValues(roomList);  
+     },1000); 
     });
 }
 
 function saveConfig(config) {
 
-    console.log(config);
+    //console.log(config);
 
     var obj = {};
     obj.data = {};
@@ -48,15 +53,24 @@ function saveConfig(config) {
 }
 
 function setValues(roomList){
+    console.log('Setting Pin States');
+    var switches;
     for(var i=0; i<roomList.data.roomList.length ;i++){
-        for (var j = 0; j < roomList.data.roomList[i].switches.length; j++) {
+        try{
+         switches = roomList.data.roomList[i].switches();
+        }catch(e) {
+         //console.log(e);
+         switches = roomList.data.roomList[i].switches;
+        }
+        for (var j = 0; j < switches.length; j++) {
             try {
-                 $(document).find('#button'+ roomList.data.roomList[i].switches[j].pin).val(roomList.data.roomList[i].switches[j].value).slider('refresh'); 
-            } catch(e) {
-                console.log(e);
-                $(document).find('#button'+ roomList.data.roomList[i].switches[j].pin).slider();
-                $(document).find('#button'+ roomList.data.roomList[i].switches[j].pin).val(roomList.data.roomList[i].switches[j].value).slider('refresh');
+                      $(document).find('#button'+ switches[j].pin).val(switches[j].value).slider('refresh'); 
+                } catch(e) {
+                    //console.log(e);
+                    $(document).find('#button'+ switches[j].pin).slider();
+                    $(document).find('#button'+ switches[j].pin).val(switches[j].value).slider('refresh');
             }
         }
     }
 }
+// roomList.data.roomList[i].

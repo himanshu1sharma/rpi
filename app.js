@@ -33,13 +33,9 @@ var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Server listening on port " + app.get('port'));
 });
 
-server.once('connection', function (stream) {
-  console.log('someone connected!');
-});
 
 var socket = require('./routes/socket');
 var io = require('socket.io').listen(server,{ log: false });
-var a = 1;
 
 app.get('/', routes.index);
 app.get('/pinState', fnRouter.getPinstate);

@@ -10,7 +10,7 @@ fs.readFile("pinstate.json", 'utf8', function (err, data) {
  
   data = JSON.parse(data);
   pins = data;
-  console.log("aaaaaaaaaaaaaa" + JSON.stringify(data));
+  console.log(JSON.stringify(data));
   
 });
 
