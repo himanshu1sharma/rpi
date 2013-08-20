@@ -6,7 +6,8 @@ $(document).on('mobileinit', function () {
 
 });
 
-var socket = io.connect('http://localhost');
+//var socket = io.connect('http://localhost');
+var socket = io.connect('http://app.himanshusharma.info');
 var pinState;
 
 function turnOn(pinNumber){
